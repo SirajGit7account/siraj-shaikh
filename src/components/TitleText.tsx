@@ -7,7 +7,7 @@ type TitleTextProps = {
 // Move constants outside component to avoid recreation on every render
 const FINAL_TEXT = 'Design Engineer & GTM'
 const GLITCH_CHARS = 'KsaddfsA@#$@#esdQWEZXCl;skjdskdm;f#$@V'
-const MAX_ITERATIONS = 30 // Reduced for faster animation
+const MAX_ITERATIONS = 17 // Reduced for faster animation
 const INTERVAL_MS = 25 // Reduced for faster flicker
 
 export default function TitleText({ className = '' }: TitleTextProps) {
