@@ -30,11 +30,28 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html 
+      lang="en"
+      style={{
+        margin: 0,
+        padding: 0,
+        background: 'linear-gradient(170deg, rgb(0, 0, 0) 0%, rgb(20, 19, 19) 70%, rgb(38, 38, 38) 100%)',
+        backgroundAttachment: 'fixed',
+        minHeight: '100vh',
+      }}
+    >
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body
+        style={{
+          margin: 0,
+          padding: 0,
+          background: 'linear-gradient(170deg, rgb(0, 0, 0) 0%, rgb(20, 19, 19) 70%, rgb(38, 38, 38) 100%)',
+          backgroundAttachment: 'fixed',
+          minHeight: '100vh',
+        }}
+      >
         <TanStackDevtools
           config={{
             position: 'bottom-right',
