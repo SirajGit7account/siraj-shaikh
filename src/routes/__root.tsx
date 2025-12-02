@@ -29,6 +29,11 @@ export const Route = createRootRoute({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  React.useEffect(() => {
+    // Add loaded class immediately so animations can start
+    document.body.classList.add('loaded')
+  }, [])
+
   return (
     <html 
       lang="en"
@@ -42,6 +47,26 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     >
       <head>
         <HeadContent />
+        <style dangerouslySetInnerHTML={{ __html: `
+          body:not(.loaded) {
+            opacity: 0;
+          }
+          body.loaded {
+            opacity: 1;
+            transition: opacity 0.1s ease-in;
+          }
+        ` }} />
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function() {
+            // Hide body initially to prevent flash
+            document.body.style.opacity = '0';
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', function() {
+                // Will be shown by React useEffect
+              });
+            }
+          })();
+        ` }} />
       </head>
       <body
         style={{

@@ -3,13 +3,17 @@ import GridLine from '../components/GridLine'
 import HeaderText from '../components/HeaderText'
 import NameText from '../components/NameText'
 import TitleText from '../components/TitleText'
+import NavMenu from '../navigation/nav-menu' 
+import GithubGraph from '../components/github-graph'
 
 export default function MainGrid() {
   return (
     <>
       {/* navbar - fixed */}
-      <GridLine orientation="horizontal" position="top-10" isFixed={true} />
-
+      <div className="sticky top-10 z-[120]">
+        <GridLine orientation="horizontal" position="top-10" isFixed={true} />
+        <NavMenu position="top-[18px]" isFixed={true} orderoflinks={['Blogs', 'Experience', 'Recommendations', 'Email', 'Github']} />
+      </div>
       {/* banner space*/}
       <GridLine orientation="horizontal" position="top-80" />
 
@@ -57,6 +61,7 @@ export default function MainGrid() {
       <Card1 className="absolute top-[43.35%] left-[20.3%]" />
       <GridLine orientation='vertical' position='left-105' className="top-[43.35%] h-[160px]" /> 
       <Card1 className="absolute top-[120%] right-[25%]" />
+      <GithubGraph />
     </>
   )
 }
